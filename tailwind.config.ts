@@ -8,13 +8,32 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        current: 'currentColor',
+        transparent: 'transparent',
+        white: '#F2F2F2',
+        black: '#0D0D0D',
+        grey: '#BFBFBF',
+        whiteGreen: '#DEE8D2',
+        shamrockGreen: '#0FA068',
+        darkGreen: '#043826',
       },
     },
+    container: {
+      center: true,
+      padding: '1rem'
+    },
+    screens: {
+      xs: '450px',
+      sm: '575px',
+      md: '768px',
+      lg: '992px',
+      xl: '1200px',
+      '2xl': '1400px'
+    }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }
 export default config
