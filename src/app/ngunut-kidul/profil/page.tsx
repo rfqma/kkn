@@ -12,19 +12,19 @@ const getData = async () => {
   }
 }
 
-// const getHighlight = async () => {
-//   try {
-//     const response = await axios.get(`${process.env.API_URL}/article-highlight`)
-//     const highlight = response.data
-//     return highlight.articles
-//   } catch (error) {
-//     return error
-//   }
-// }
+const getHighlight = async () => {
+  try {
+    const response = await axios.get(`${process.env.API_URL}/article-highlight`)
+    const highlight = response.data
+    return highlight.articles
+  } catch (error) {
+    return error
+  }
+}
 
 export default async function NgunutKidulProfilPage() {
   const profil = await getData()
-  // const highlight = await getHighlight()
+  const highlight = await getHighlight()
 
   return (
     <>
@@ -45,7 +45,7 @@ export default async function NgunutKidulProfilPage() {
           }
         ]}
       />
-      {/* <NewsHighlight data={highlight} /> */}
+      <NewsHighlight data={highlight} />
     </>
   )
 }

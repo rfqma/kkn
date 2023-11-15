@@ -51,9 +51,9 @@ export const Content = ({
                   <Image
                     src={author.image}
                     alt={author.name}
-                    width={35}
-                    height={35}
-                    className="object-cover rounded-full"
+                    width={1000}
+                    height={1000}
+                    className="w-12 h-12 object-cover rounded-full"
                   />
                 </div>
                 <div className="ml-3">

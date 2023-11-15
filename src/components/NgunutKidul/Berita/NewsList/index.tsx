@@ -23,8 +23,8 @@ export const NewsList = (props: any) => {
                     <Image
                       src={post.image.url}
                       alt={post.title}
-                      height={500}
-                      width={500}
+                      height={1200}
+                      width={800}
                       className="absolute inset-0 object-cover w-full h-full rounded-2xl bg-gray-50"
                     />
                     <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
