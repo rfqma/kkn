@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { NewsList } from "@/components/NgunutKidul/Berita/NewsList"
 import { BreadCrumbs } from "@/components/UI/Breadcrumbs"
 import { Pagination } from "@/components/UI/Pagination"
