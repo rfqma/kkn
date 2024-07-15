@@ -1,23 +1,25 @@
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";
 
-import { NewsList } from "@/components/NgunutKidul/Berita/NewsList"
-import { BreadCrumbs } from "@/components/UI/Breadcrumbs"
-import { Pagination } from "@/components/UI/Pagination"
-import axios from "axios"
+import { NewsList } from "@/components/NgunutKidul/Berita/NewsList";
+import { BreadCrumbs } from "@/components/UI/Breadcrumbs";
+import { Pagination } from "@/components/UI/Pagination";
+import axios from "axios";
 
 const getData = async (page: any) => {
   try {
-    const response = await axios.get(`${process.env.API_URL}/articles?page=${page}`)
-    const articles = response.data
-    return articles
+    const response = await axios.get(
+      `${process.env.API_URL}/articles?pagination[page]=${page}&populate=*`
+    );
+    const articles = response.data;
+    return articles;
   } catch (error) {
-    return error
+    return error;
   }
-}
+};
 
 const Page = async ({ params }: any) => {
-  const { halaman } = params
-  const articles = await getData(parseInt(halaman))
+  const { halaman } = params;
+  const articles = await getData(parseInt(halaman));
 
   return (
     <main>
@@ -39,17 +41,20 @@ const Page = async ({ params }: any) => {
 
         <div className="pt-6">
           <Pagination
-            totalPage={articles.pagination.totalPages}
-            currentPage={articles.pagination.currentPage}
-            limit={articles.pagination.limit}
-            hasPrevious={articles.pagination.hasPreviousPage}
-            hasNext={articles.pagination.hasNextPage}
-            totalData={articles.pagination.totalData}
+            totalPage={articles.meta.pagination.pageCount}
+            currentPage={articles.meta.pagination.page}
+            limit={articles.meta.pagination.pageSize}
+            hasPrevious={articles.meta.pagination.page !== 1}
+            hasNext={
+              articles.meta.pagination.page !==
+              articles.meta.pagination.pageCount
+            }
+            totalData={articles.meta.pagination.total}
           />
         </div>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;
