@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Content } from "@/components/Layout/Content";
 import axios from "axios";
 import { NewsHighlight } from "@/components/NgunutKidul/Profil/NewsHighlight";

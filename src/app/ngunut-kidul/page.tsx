@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Hero } from "@/components/NgunutKidul/Home/Hero";
 import axios from "axios";
 
