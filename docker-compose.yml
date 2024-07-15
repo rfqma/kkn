@@ -7,8 +7,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    env_file:
-      - .env
+    # add this line in docker-compose.yml on vps
+    # env_file:
+    #   - .env
     ports:
       - "3005:3000"
     restart: always
